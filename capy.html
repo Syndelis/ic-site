@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Uma biblioteca para construção e simulação de Autômatos Celulares</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  <!-- Prims' Syntax Highlighter -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" /> -->
+  <link href="css/prism-xonokai.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- Prims' Syntax Highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ínicio</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/introducaoac/anewkindofscience.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Uma biblioteca para construção e simulação de Autômatos Celulares</h1>
+            <h2 class="subheading">Com uma simples interface e alta eficiência</h2>
+            <span class="meta">Por
+              <a href="#">Brenno Lemos e Alexandre B. Pigozzo</a>
+              , Março de 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading">Introdução</h2>
+          <p>
+            A <a href="https://github.com/syndelis/cellular-automata">ferramenta</a>,
+            criada como parte do projeto de
+            <a href="https://www.ufsj.edu.br/pic/">Iniciação Científica</a> da
+            <a href="https://ufsj.edu.br">UFSJ</a>, tem como objetivo simplificar
+            o processo de modelagem por Autômato Celular.
+          </p>
+
+          <p>
+            A biblioteca é uma extensão para Python que introduz uma interface
+            Orientada a Objetos para a criação e simulação dos modelos,
+            utilizando <a href="https://matplotlib.org/">matplotlib</a> para a
+            representação gráfica dos resultados.
+          </p>
+
+          <h2 class="section-heading">Seu primeiro AC</h2>
+          <pre><code class="language-py">from ca import CA, plot
+
+class MeuCA(CA):
+  def rule(self, x, y):
+    return self[x, y] - 1 or 0
+
+c = MeuCA(30)
+plot(c, out="test.pdf")
+          </code></pre>
+
+		  <!-- <div class="row">
+			  <div class="column">
+				  <img src="img/introducaoac/edit1.png">
+				  <img src="img/introducaoac/edit4.png">
+				  <img src="img/introducaoac/edit7.png">
+			  </div>
+			  <div class="column">
+				<img src="img/introducaoac/edit2.png">
+				<img src="img/introducaoac/edit5.png">
+				<img src="img/introducaoac/edit8.png">
+			  </div>
+			  <div class="column">
+				<img src="img/introducaoac/edit3.png">
+				<img src="img/introducaoac/edit6.png">
+				<img src="img/introducaoac/edit9.png">
+			  </div>
+		  </div> -->
+		  <!-- <span class="caption">
+			  Figura 1: Simulação do modelo <i>SIR</i>. Verde representa
+			  suscetível, vermelho, infeccioso, e amarelo, recuperado.
+		  </span> -->
+
+		  <hr>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- <hr> -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+
+            <li class="list-inline-item">
+              <a href="https://ufsj.edu.br">
+                <img style="max-width: 300px; max-height: 300px" src="img/ufsjdark.png">
+              </a>
+            </li>
+
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
