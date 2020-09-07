@@ -21,6 +21,9 @@
   <!-- Custom styles for this template -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 
 <body>
@@ -74,9 +77,62 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
           <p>
-    	  </p>
+              A construção de um modelo começa com a definição do propósito dele:
+              <ul>
+                  <li> Para que esse modelo será usado? </li>
+                  <li> Quais questões esse modelo pretende responder? </li>
+             </ul>
 
+             A definição do propósito está muito relacionada com a definição do escopo, da abrangência do modelo.
+         </p>
+         <p>
+             Antes de começar o projeto de modelagem, é importante que os objetivos do modelo estejam claros. No início do projeto de modelagem, os objetivos do esforço de
+             modelagem devem estar explicitamente e totalmente definidos. Um afirmação clara dos objetivos específicos é essencial para definir as necessidades e natureza do modelo. É mais
+             provável que os objetivos sejam atingidos com sucesso quando eles forem claros, modestos e tratáveis.
+        </p>
+        <p>
+             Após a definição do propósito do modelo, devem ser escolhidos os mecanismos e processos que serão nele incorporados. Esses mecanismos e processos têm como base
+             hipóteses que devem estar fundamentadas em teorias e dados do fenômeno modelado. A definição de hipóteses adequadas pode ser considerada a decisão mais importante no
+             processo de modelagem.
+        </p>
+        <p>
+             Depois de definidas as hipóteses, inicia-se a construção do modelo. O modelo é construído a partir de abstrações e formalizações dos mecanismos e
+             processos que serão incorporados.
+        </p>
+        <h2 class="section-heading">Exemplo: construindo um modelo de crescimento populacional</h2>
+        <p>
+            Um primeiro passo é construir uma estrutura básica do modelo que reflete nossas crenças sobre como o sistema funciona.
+            Essas crenças são definidas na forma de hipóteses. Análises futuras do sistema tratam essas hipóteses como verdadeiras,
+            mas os resultados só são tão válidos quanto as hipóteses.
+        </p>
 
+        <p>
+            Em estudos populacionais, uma abordagem comum é que, na ausência de fatores limitantes, a população cresce a uma taxa proporcional
+            ao seu tamanho. Um modelo determinístico de tempo contínuo para esse crescimento é dado abaixo:
+            \[{dp \over dt} = {a.p(t)}\]
+            onde p(t) é o tamanho da população no tempo t e a é um parâmetro constante. O parâmetro a é a taxa de crescimento.
+        </p>
+
+        <p>
+            Essa equação é uma <u>Equação Diferencial Ordinária</u> porque a população p varia somente no tempo. Essa equação possui solução
+            analítica e a solução é dada por: \(p(t) = p(0).e^{a.t}\). A solução nos diz que a população cresce a uma taxa exponencial.
+            Pórem, nem todas as populações crescem exponencialmente. Então, para mudar isso temos que mudar a nossa hipótese "na ausência de fatores limitantes, a população cresce a uma taxa proporcional
+            ao seu tamanho".
+        </p>
+
+        <p>
+            Uma segunda hipótese que aparece nesse modelo é que o crescimento ocorre continuamente. Se a população consistir de gerações discretas, podemos
+            usar uma equação de diferença para modelar o problema:
+            \[d_{i+1} = b.d_i\], onde \(d_i\) é o tamanho da geração i.
+            A solução da equação é \(d_i = d_0.b^i\), onde \(d_0\) é a população inicial.
+        </p>
+
+        <p>
+            Uma terceira hipótese é a de que a população se comporta de acordo com uma lei determinística. Porém, esperamos uma variabilidade
+            estocástica importante na população. Devido a isso poderíamos considerar nascimentos e mortes como processos separados. Nesse caso, um modelo para a variação populacional
+            é:
+            
+        </p>
 
 		  <hr>
         </div>
