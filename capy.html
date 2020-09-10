@@ -24,6 +24,7 @@
   <!-- Prims' Syntax Highlighter -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" /> -->
   <link href="css/prism-xonokai.css" rel="stylesheet" />
+  <link href="css/prism-live.css" rel="stylesheet" />
 
 </head>
 
@@ -32,6 +33,7 @@
   <!-- Prims' Syntax Highlighter -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
+  <script src="src/prism-live.js?load=python"></script>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -105,30 +107,12 @@ class MeuCA(CA):
     return self[x, y] - 1 or 0
 
 c = MeuCA(30)
-plot(c, out="test.pdf")
-          </code></pre>
+plot(c, out="test.pdf")</code></pre>
 
-		  <!-- <div class="row">
-			  <div class="column">
-				  <img src="img/introducaoac/edit1.png">
-				  <img src="img/introducaoac/edit4.png">
-				  <img src="img/introducaoac/edit7.png">
-			  </div>
-			  <div class="column">
-				<img src="img/introducaoac/edit2.png">
-				<img src="img/introducaoac/edit5.png">
-				<img src="img/introducaoac/edit8.png">
-			  </div>
-			  <div class="column">
-				<img src="img/introducaoac/edit3.png">
-				<img src="img/introducaoac/edit6.png">
-				<img src="img/introducaoac/edit9.png">
-			  </div>
-		  </div> -->
-		  <!-- <span class="caption">
-			  Figura 1: Simulação do modelo <i>SIR</i>. Verde representa
-			  suscetível, vermelho, infeccioso, e amarelo, recuperado.
-		  </span> -->
+        <pre class="prism-live language-py"><code class="language-py line-numbers"
+          >print("This is focused on viewing")</code></pre>
+
+          <textarea class="prism-live language-py">print("This is focused on editing")</textarea>
 
 		  <hr>
         </div>
