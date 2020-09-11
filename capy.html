@@ -100,19 +100,38 @@
           </p>
 
           <h2 class="section-heading">Seu primeiro AC</h2>
-          <pre><code class="language-py">from ca import CA, plot
-
-class MeuCA(CA):
+          
+          <p>
+            A criação do autômato celular se dá em duas partes:
+            <ol>
+              <li>Extensão da classe mãe <code>CA</code>, com sobrescrição do método <code>rule</code>;</li>
+              <li>Instanciação da nova classe com os parâmetros iniciais.</li>
+            </ol>
+            O exemplo abaixo gera um domínio 30x30 com populações de valor até
+            5. A partir do estado inicial, todas as células têm seus valores
+            reduzidos até 0.
+          </p>
+          
+          <textarea class="prism-live language-py"
+>class MeuCA(CA):
   def rule(self, x, y):
     return self[x, y] - 1 or 0
 
-c = MeuCA(30)
-plot(c, out="test.pdf")</code></pre>
+c = MeuCA(30, values=5)
+plot(c, out="test.pdf")</textarea>
 
-        <pre class="prism-live language-py"><code class="language-py line-numbers"
-          >print("This is focused on viewing")</code></pre>
+  <div class="clearfix">
+    <span class="caption d-inline">
+      Edite o código e veja os resultados!
+    </span>
+    <a class="btn btn-primary float-right" href="#Seu Primeiro AC">Execute</a>
+  </div>
 
-          <textarea class="prism-live language-py">print("This is focused on editing")</textarea>
+      <!-- Resultado aqui -->
+
+      <p>
+
+      </p>
 
 		  <hr>
         </div>
