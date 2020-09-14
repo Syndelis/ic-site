@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Introdução à Modelagem Computacional</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  <!-- Prims' Syntax Highlighter -->
+  <link href="css/prism-xonokai.css" rel="stylesheet" />
+  <link href="css/prism-live.css" rel="stylesheet" />
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Prims' Syntax Highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
+  <script src="src/prism-live.js?load=python"></script>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ínicio</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/introducaoac/anewkindofscience.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Modelo logístico</h1>
+            <span class="meta">Por
+              <a href="#">Brenno Lemos e Alexandre B. Pigozzo</a>
+              , Setembro de 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+         <p>
+            O modelo logístico surgiu para tentar modelar de forma mais realista o crescimento populacional. Esse modelo tenta levar em
+            consideração restrições ao crescimento da população como, por exemplo: restrições ambientais, competição intraespecífica,
+            entre outras. A competição intraespecífica adiciona ao modelo uma regulação da população que depende da própria densidade
+            dessa população.
+         </p>
+         <p>
+           O modelo de crescimento logístico pode ser representado pela seguinte equação:
+           \[{dN \over dt} = a.N (1 - {N \over K})\]
+           onde a é a taxa de crescimento/natalidade e K é a capacidade de suporte da população N. A capacidade de suporte representa
+           o número máximo de indivíduos que o ambiente suporta ao mesmo tempo. Essa equação nos diz que quando N for igual a K
+           a expressão entre parênteses será zero e portanto a população não vai crescer mais (\({dN \over dt} = 0\)). Para N > K, a população
+           decresce (\({dN \over dt} < 0\)).
+         </p>
+         <p>Podemos descobrir várias informações sobre um modelo analisando os pontos de equilíbrio e a estabilidade
+         deles. Essa análise será feita a seguir.
+         </p>
+         <p>
+          Um exemplo de comportamento do modelo logístico é mostrado na figura abaixo.
+         </p>
+         <p>
+            <img class="w-80 h-80" src="img/modelologistico/fig1-modelologistico.png"/>
+         </p>
+         <p>
+           Observa-se que a população a partir da condição inicial cresce até a capacidade de suporte e permanece nesse valor
+           entrando em equilíbrio.
+         </p>
+         <p>
+           Outro exemplo de comportamento do modelo logístico é dado abaixo.
+         </p>
+         <p>
+            <img class="w-80 h-80" src="img/modelologistico/fig2-modelologistico.png"/>
+         </p>
+         <p>
+            Observa-se nesse caso que o valor da população inicial é maior do que a capacidade de suporte, fazendo com que a população
+            decresça até a capacidade de suporte chegando ao equilíbrio novamente.
+         </p>
+        <h2 class="section-heading">Implementação computacional</h2>
+        <p>
+           Um exemplo de implementação computacional do modelo logístico na linguagem Python é mostrado abaixo.
+        </p>
+        <p>
+          <div>
+          <pre>
+            <code class="language-py">
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sb
+
+def logistico(a, n, K, i):
+    return a*n[i]*(1 - c*n[i]/K)
+
+N = 1000
+n = []
+n.append(200) #condição inicial
+a = 0.1 #taxa de crescimento
+k = 100 #capacidade de suporte
+
+c = 1 #competição intra-específica
+t = np.linspace(0, 50, N)
+dt = (50 - 0)/N
+for i in range(0,N-1):
+    n.append(logistico(a, n, k, i)*dt + n[i])
+
+"""
+Plotando os resultados
+"""
+ax = plt.axes()
+plt.xlim([0, 50])
+plt.ylim([0,2*k+1])
+plt.xlabel("tempo")
+plt.ylabel("N")
+plt.plot(t, n, 'b',label="Crescimento logístico")
+plt.legend(loc='lower right')
+plt.show()
+
+          </code></pre>
+        </div>
+        </p>
+
+		  <hr>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- <hr> -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+
+            <li class="list-inline-item">
+              <a href="https://ufsj.edu.br">
+                <img style="max-width: 300px; max-height: 300px" src="img/ufsjdark.png">
+              </a>
+            </li>
+
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

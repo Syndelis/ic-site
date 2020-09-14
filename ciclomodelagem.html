@@ -123,15 +123,59 @@
         <p>
             Uma segunda hipótese que aparece nesse modelo é que o crescimento ocorre continuamente. Se a população consistir de gerações discretas, podemos
             usar uma equação de diferença para modelar o problema:
-            \[d_{i+1} = b.d_i\], onde \(d_i\) é o tamanho da geração i.
-            A solução da equação é \(d_i = d_0.b^i\), onde \(d_0\) é a população inicial.
+            \[d_{i+1} = b.d_i\] onde \(d_i\) é o tamanho da geração i.
+            A solução da equação é \(d_i = d_0.b^i\), onde \(d_0\) é a população inicial. As soluções da equação diferencial e da equação de diferença
+            coincidem no tempo t = i se d_0 = p(0) e b = e^a.
         </p>
 
         <p>
             Uma terceira hipótese é a de que a população se comporta de acordo com uma lei determinística. Porém, esperamos uma variabilidade
             estocástica importante na população. Devido a isso poderíamos considerar nascimentos e mortes como processos separados. Nesse caso, um modelo para a variação populacional
             é:
-            
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Evento</th>
+                  <th>Efeito na população p</th>
+                  <th>Probabilidade do evento </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nascimento</td>
+                  <td>\[p(t+\delta t) = p(t) + 1\]</td>
+                  <td>\[c.p(t).\delta t\]</td>
+                </tr>
+                <tr>
+                  <td>Morte</td>
+                  <td>\[p(t+\delta t) = p(t) - 1\]</td>
+                  <td>\[f.p(t).\delta t\]</td>
+                </tr>
+                <tr>
+                  <td>Sem mudança</td>
+                  <td>\[p(t+\delta t) = p(t)\]</td>
+                  <td>\[1 - c.p(t).\delta t - f.p(t).\delta t\]</td>
+                </tr>
+              </tbody>
+            </table>
+        </p>
+
+        <p>
+            Como podemos simular aproximadamente esse modelo estocástico? Escolhemos um passo de tempo \(\delta t\) suficientemente
+            pequeno de modo que a probabilidade de qualquer evento ocorrer nesse intervalor é menor do que 1. Depois escolhemos um
+            dos possíveis eventos com a probabilidade mostrada. Fazemos isso gerando um número aleatório y entre 0 e 1.
+            Um nascimento ocorre se \(y < c.p(t).\delta t\), uma morte ocorre \(y < c.p(t).\delta t + f.p(t).\delta t\) e
+            \(y >= c.p(t).\delta t\) e, caso contrário, nenhuma mudança ocorre. Esse modelo estocástico tem o mesmo valor esperado
+            do modelo de equações diferenciais se (c - f) = a.
+        </p>
+
+        <p>
+            Uma quarta hipótese considerada ao construir nosso modelo de crescimento populacional foi considerar que a população
+            está uniformemente distribuída no espaço e que não tem contato com outras populações. Se tivermos interessado na distribuição
+            espacial da população, devemos introduzir o movimento dos indivíduos em algum domínio espacial além de ser necessário repensarmos
+            os processos de crescimento e decrescimento considerando agora o espaço. Uma possível abordagem seria trabalhar com Equações Diferenciais
+            Parciais ou trabalhar com outro tipo de modelo como Agentes, por exemplo.
         </p>
 
 		  <hr>
