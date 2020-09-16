@@ -24,6 +24,7 @@
   <!-- Prims' Syntax Highlighter -->
   <link href="css/prism-xonokai.css" rel="stylesheet" />
   <link href="css/prism-live.css" rel="stylesheet" />
+  <link href="css/tabstyle.css" rel="stylesheet">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -95,8 +96,8 @@
            \[{dN \over dt} = a.N (1 - {N \over K})\]
            onde a é a taxa de crescimento/natalidade e K é a capacidade de suporte da população N. A capacidade de suporte representa
            o número máximo de indivíduos que o ambiente suporta ao mesmo tempo. Essa equação nos diz que quando N for igual a K
-           a expressão entre parênteses será zero e portanto a população não vai crescer mais (\({dN \over dt} = 0\)). Para N > K, a população
-           decresce (\({dN \over dt} < 0\)).
+           a expressão entre parênteses será zero e portanto a população não vai crescer mais (\({dN \over dt} = 0\)).
+           Para N > K, a população decresce (\({dN \over dt} < 0\)).
          </p>
          <p>Podemos descobrir várias informações sobre um modelo analisando os pontos de equilíbrio e a estabilidade
          deles. Essa análise será feita a seguir.
@@ -125,15 +126,26 @@
         <p>
            Um exemplo de implementação computacional do modelo logístico na linguagem Python é mostrado abaixo.
         </p>
-        <p>
-          <div>
-          <pre>
-            <code class="language-py">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#python" role="tab" aria-controls="python" aria-selected="true">Python</a>
+  </li>
+  <!-- <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li> -->
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="python" role="tabpanel" aria-labelledby="home-tab">
+    <pre>
+      <code class="language-py">
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sb
 
 def logistico(a, n, K, i):
     return a*n[i]*(1 - c*n[i]/K)
@@ -161,11 +173,18 @@ plt.ylabel("N")
 plt.plot(t, n, 'b',label="Crescimento logístico")
 plt.legend(loc='lower right')
 plt.show()
+    </code></pre>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
 
-          </code></pre>
-        </div>
-        </p>
-
+      <p>
+        No código, primeiro são importadas as bibliotecas que serão utilizadas (matplotlib e numpy).
+        Depois é definida uma função logistico que calcula o lado direito da EDO. São definidos os valores
+        da condição inicial e dos parâmetros. Após isso, temos o loop principal que calcula os valores da
+        EDO para vários passos de tempo. E, por último, são chamadas as funções para plotar o resultado.
+      </p>
 		  <hr>
         </div>
       </div>
@@ -200,6 +219,25 @@ plt.show()
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
+
+  <script>
+  function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+  }
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+</script>
+
 
 </body>
 
