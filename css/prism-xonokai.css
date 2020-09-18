@@ -17,7 +17,7 @@ pre[class*="language-"] {
 	word-wrap: normal;
 	font-family: Menlo, Monaco, "Courier New", monospace;
 	font-size: 14px;
-	color: #76d9e6;
+	color:  #76d9e6;
 	text-shadow: none;
 }
 
@@ -27,7 +27,7 @@ pre > code[class*="language-"] {
 
 pre[class*="language-"],
 :not(pre) > code[class*="language-"] {
-	background: #2a2a2a;
+	background: #1C1C1C; //#363636; //#2a2a2a;
 }
 
 pre[class*="language-"] {
