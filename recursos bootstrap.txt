@@ -1,0 +1,41 @@
+Colors bootstrap: 
+.text-primary
+
+.text-secondary
+
+.text-success
+
+.text-danger
+
+.text-warning
+
+.text-info
+
+.text-light
+
+.text-dark
+
+.text-muted
+
+.text-white
+
+Div com background: 
+<div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+
+<span class="border"></span>
+
+<div class="alert alert-danger" role="alert">
+  This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+
+alerts podem conter headers, paragraphs, dividers. 
+
+Dismissible alert: 
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
